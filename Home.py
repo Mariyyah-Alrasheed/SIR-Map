@@ -1,6 +1,9 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
-
+st.set_page_config(
+    page_title="Hello",
+    page_icon="👋",
+)
 st.set_page_config(layout="wide")
 
 # Customize the sidebar
@@ -8,10 +11,6 @@ markdown = """
 A Streamlit map template
 """
 
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-)
 
 st.sidebar.title("SIR-Map")
 st.sidebar.info(markdown)
