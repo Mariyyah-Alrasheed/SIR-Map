@@ -9,3 +9,4 @@ opencv-python
 rasterio
 tensorflow
 h5py
+opencv-python-headless
