@@ -10,6 +10,14 @@ A Streamlit map template
 
 st.sidebar.title("SIR-Map")
 st.sidebar.info(markdown)
+
+# Link to run the SIR-Map functionality
+if st.sidebar.button("Run SIR-Map"):
+    SIR_Map.main()  # Call the main function from SIR-Map.py if it exists
+
+
+st.sidebar.title("SIR-Map")
+st.sidebar.info(markdown)
 # logo = "https://i.imgur.com/UbOXYAU.png"
 
 logo = "./image-removebg-preview (1).png"
