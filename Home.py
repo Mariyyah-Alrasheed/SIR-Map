@@ -8,6 +8,11 @@ markdown = """
 A Streamlit map template
 """
 
+st.set_page_config(
+    page_title="Hello",
+    page_icon="👋",
+)
+
 st.sidebar.title("SIR-Map")
 st.sidebar.info(markdown)
 # logo = "https://i.imgur.com/UbOXYAU.png"
