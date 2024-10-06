@@ -7,7 +7,10 @@ import leafmap.foliumap as leafmap
 import os
 import gdown
 
-
+st.set_page_config(
+    page_title="SIR-Map",
+    page_icon="👋",
+)
 
 os.makedirs("./uploaded_files/original/", exist_ok=True)
 os.makedirs("./uploaded_files/output_tif/", exist_ok=True)
