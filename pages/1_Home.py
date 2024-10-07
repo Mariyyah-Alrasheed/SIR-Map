@@ -1,7 +1,7 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
 st.set_page_config(
-    page_title="Hello",
+    page_title="SIR",
     page_icon="👋",
     layout="wide"  # Set the layout to wide
 )
