@@ -6,11 +6,14 @@ from tensorflow.keras.models import load_model
 import leafmap.foliumap as leafmap
 import os
 import gdown
+import requests
 
-st.set_page_config(
-    page_title="SIR-Map",
-    page_icon="👋",
-)
+
+
+logo = "./image-removebg-preview (1).png"
+
+st.sidebar.image(logo)
+
 
 os.makedirs("./uploaded_files/original/", exist_ok=True)
 os.makedirs("./uploaded_files/output_tif/", exist_ok=True)
@@ -20,10 +23,7 @@ os.makedirs("./uploaded_files/output_tif/", exist_ok=True)
 def download_from_drive(file_id, output):
     gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
 
-
-
 # Load your pre-trained model
-# Function to download the model from GitHub
 def download_model_from_github(url, output_path):
     response = requests.get(url, stream=True)
     with open(output_path, 'wb') as file:
@@ -41,7 +41,6 @@ if not os.path.exists(model_path):
 
 # Load your pre-trained model
 model = load_model(model_path)
-
 
 
 # Function for extracting the predicted image
@@ -68,8 +67,8 @@ def create_tiff_with_metadata(original_tiff_path, new_image_data, new_tiff_path)
         dst.write(new_image_data)
 
 # Google Drive file IDs
-before_image_id = "1NSS_Xsv48fSucMtNHfqolP1R3HK7gK7O"  # Before image file ID
-after_image_id = "10PeRkH6LU5AUxnCtSUUnrJ8mOa_30elb"   # After image file ID
+before_image_id = "1VJWewAzIycN7mtBKss81k09OEDsNGKQJ"  # Before image file ID
+after_image_id = "1jJV2nARo-XY06mcYU2f8asfqdLitxwSS"   # After image file ID
 
 # Default paths for images if not uploaded
 before_image_path = './monsia.tif'
