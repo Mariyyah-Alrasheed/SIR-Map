@@ -20,8 +20,29 @@ os.makedirs("./uploaded_files/output_tif/", exist_ok=True)
 def download_from_drive(file_id, output):
     gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
 
+
+
 # Load your pre-trained model
-model = load_model('./unet_model_3k.keras')
+# Function to download the model from GitHub
+def download_model_from_github(url, output_path):
+    response = requests.get(url, stream=True)
+    with open(output_path, 'wb') as file:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                file.write(chunk)
+    st.success(f"Model downloaded successfully: {output_path}")
+
+
+# Download the model from your GitHub repository (if not already downloaded)
+model_path = './unet_model_3k.keras'
+if not os.path.exists(model_path):
+    github_model_url = "https://github.com/Mariyyah-Alrasheed/SIR-Map/raw/main/unet_model_3k.keras"
+    download_model_from_github(github_model_url, model_path)
+
+# Load your pre-trained model
+model = load_model(model_path)
+
+
 
 # Function for extracting the predicted image
 def predict_from_tif(model, tif_file_path):
