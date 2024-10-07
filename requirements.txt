@@ -5,7 +5,6 @@ owslib
 streamlit
 setuptools
 numpy
-opencv-python
 rasterio
 tensorflow
 h5py
